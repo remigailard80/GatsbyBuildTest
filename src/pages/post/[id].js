@@ -4,7 +4,7 @@ import { getPostAPI } from '../../api/mockapi'
 
 
 const PostTemplate = (props) => {
-    console.log(props.serverData.time[1]/1000000)
+    console.log(props.serverData.time[1]/1000000) // ms
     return (
         <PostComponent data={props.serverData}/>
     )
