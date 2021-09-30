@@ -1,4 +1,3 @@
-import { StaticQuery, graphql } from "gatsby"
 import React from "react"
 
 // 다른 페이지에서 썼던 query쓰면 안되나?
@@ -7,8 +6,8 @@ const PostComponent = (props: any) => {
     const data = props.data[0] === undefined ? props.data : props.data[0]
     return (
         <section>
-            <h2> {data && data.id} </h2>
-            <img src={`data:image/jpeg;base64,${data && data.avatar}`} alt="image" />
+            <h2> {data.id} </h2>
+            <img src={`data:image/jpeg;base64,${data && data.avatar}`} alt="image" style={{width: 50, height: 50}}/>
         </section>
     )
 }

@@ -12,7 +12,6 @@ interface postProps {
     key?: any
 }
 const PostTemplate: React.FC<postProps> = (props) => {
-    console.log(props)
     return (
         <PostComponent data={props.pageContext}/>
     )

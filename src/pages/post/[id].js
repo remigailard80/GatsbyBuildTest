@@ -4,7 +4,7 @@ import { getPostAPI } from '../../api/mockapi'
 
 
 const PostTemplate = (props) => {
-    console.log(props)
+    console.log(props.serverData.time[1]/1000000)
     return (
         <PostComponent data={props.serverData}/>
     )
@@ -16,7 +16,7 @@ export default PostTemplate
 export async function getServerData() {
     try {
         // delay ms 
-        const res = await getPostAPI(600)
+        const res = await getPostAPI()
         return {
             props: res
         }

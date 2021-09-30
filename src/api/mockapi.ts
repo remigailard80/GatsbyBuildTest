@@ -1,9 +1,4 @@
-const hashAndAvatarGenerator = require('../../utils/hashAndAvatarGenerator.ts')
-
-export function getPostAPI (ms: number) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(hashAndAvatarGenerator(15, 1))
-        }, ms)
-    })
+export async function getPostAPI () {
+    const result = await fetch('http://127.0.0.1:8080/post').then(res => res.json())
+    return result
 }
