@@ -1,7 +1,15 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require('path')
+const hashAndAvatarGenerator = require('./utils/hashAndAvatarGenerator.ts')
 
-// You can delete this file if you're not using it
+// Full SSG (1st build : delete .cache)
+exports.createPages = async ({ graphql, actions }) => {
+    const posts = await hashAndAvatarGenerator(15, 10000)
+    posts.forEach((post, idx) => {
+        actions.createPage({
+            path: `/post/` + post.id,
+            context: post,
+            component: path.resolve(__dirname, 'src/template/PostTemplate.tsx'),
+            // defer: idx+1 > 200, << DSG (defer = false 가 pre-build, true가 SSR)
+        })
+    })
+}
