@@ -3,7 +3,7 @@ const hashAndAvatarGenerator = require('./utils/hashAndAvatarGenerator.ts')
 
 // Full SSG (1st build : delete .cache)
 exports.createPages = async ({ graphql, actions }) => {
-    const posts = await hashAndAvatarGenerator(15, 10000)
+    const posts = await hashAndAvatarGenerator(15, 100)
     posts.forEach((post, idx) => {
         actions.createPage({
             path: `/post/` + post.id,
@@ -12,4 +12,6 @@ exports.createPages = async ({ graphql, actions }) => {
             // defer: idx+1 > 200, << DSG (defer = false 가 pre-build, true가 SSR)
         })
     })
+
+
 }

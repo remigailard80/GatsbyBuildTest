@@ -1,7 +1,5 @@
-import { graphql } from 'gatsby'
 import React from 'react'
 import PostComponent from '../components/post'
-import Layout from '../components/layout'
 
 interface postProps {
     location: object
@@ -14,10 +12,9 @@ interface postProps {
     key?: any
 }
 const PostTemplate: React.FC<postProps> = (props) => {
+    console.log(props)
     return (
-        <Layout>
-            <PostComponent data={props.pageContext}/>
-        </Layout>
+        <PostComponent data={props.pageContext}/>
     )
 }
 
